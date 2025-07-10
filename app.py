@@ -12,7 +12,7 @@ This dashboard analyzes the top 30 cryptocurrencies in real-time and suggests pr
 with st.spinner("Fetching latest market data..."):
     market_data = get_top_30_coins()
 
-if not market_data:
+if market_data is None or market_data.empty:
     st.error("Failed to fetch market data. Please try again later.")
     st.stop()
 
